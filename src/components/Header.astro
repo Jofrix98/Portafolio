@@ -1,0 +1,70 @@
+---
+interface Props {
+  siteTitle?: string;
+  navItems?: Array<{ text: string; href: string }>;
+}
+
+const props = Astro.props as Props;
+
+const defaultNavItems = [
+  { text: 'Home', href: '#home' },
+  { text: 'Projects', href: '#projects' },
+  { text: 'About', href: '#about' },
+  { text: 'Contact', href: '#contact' },
+];
+
+const navItems = props.navItems || defaultNavItems;
+---
+
+<header class="fixed top-0 left-0 w-full p-4 z-50 backdrop-blur-sm transition-all duration-300">
+  <nav class="max-w-6xl mx-auto flex justify-between items-center gap-8">
+    <div class="font-bold text-xl text-white">
+      <a href="/" class="hover:translate-y-[-2px] transition-transform duration-300">
+        {props.siteTitle || 'Jofre Coll Vila'}
+      </a>
+    </div>
+    
+    <ul class="flex gap-8">
+      {navItems.map((item) => (
+        <li class="relative group">
+          <a 
+            href={item.href} 
+            data-scroll 
+            class="text-white/90 hover:text-blue-400 font-medium transition-all duration-300"
+          >
+            {item.text}
+          </a>
+          <span class="absolute bottom-0 left-0 w-0 h-px bg-blue-400 transition-all duration-300 group-hover:w-full"></span>
+        </li>
+      ))}
+    </ul>
+  </nav>
+</header>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const links = document.querySelectorAll("a[data-scroll]");
+
+    links.forEach(link => {
+      link.addEventListener("click", function (event) {
+        event.preventDefault();
+        
+        const targetId = this.getAttribute("href").substring(1); // Remove #
+        const targetElement = document.getElementById(targetId);
+        
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 50, // Adjust for header height
+            behavior: "smooth"
+          });
+        }
+      });
+    });
+  });
+</script>
+
+<style>
+  section {
+    scroll-margin-top: 60px; /* Prevents content from being hidden behind fixed header */
+  }
+</style>

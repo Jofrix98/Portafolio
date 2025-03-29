@@ -1,0 +1,80 @@
+---
+interface Project {
+  title: string;
+  description: string;
+  imageUrl: string;
+  link: string;
+  date: string;
+}
+
+const projects: Project[] = [
+  {
+    title: 'Premium Delevent',
+    description: 'Web con templates PHP de Wordpress',
+    imageUrl: '/assets/WebPremium.JPG',
+    link: 'https://www.premiumdelevent.com/',
+    date: 'Abril 2024'
+  },
+  {
+    title: 'Web Portafolio',
+    description: 'Web personal con Astro y Tailwind CSS',
+    imageUrl: '/assets/WebPortafolio.JPG',
+    link: 'https://jofrecollvila.netlify.app/',
+    date: 'Marzo 2025'
+  },
+  {
+    title: 'Projet Final - Site de visualisation des mouvements de population',
+    description: 'Web con Dash y Bases de datos del Gobierno Francés',
+    imageUrl: '/assets/projet-final.jpg',
+    link: 'https://github.com/emmanuelgkn/goco_project',
+    date: 'Diciembre 2023'
+  },
+  {
+    title: 'Projecte de Recerca - Automatització d\'un camp de conreu',
+    description: 'Proyecto realizado con BASIC para automatización de un robot con detección de obstáculos con luz infrarroja',
+    imageUrl: '/assets/boe-bot.png',
+    link: '#',
+    date: ' Mayo 2022'
+  },
+  {
+    title: 'Darwin\'s Odyssey',
+    description: 'Juego de cooperación local en C#',
+    imageUrl: '/assets/Darwins-Odissey.JPG',
+    link: 'https://github.com/cezou/DarwinsOdyssey',
+    date: 'Abril 2023'
+  },
+  {
+    title: 'Fresh Fish',
+    description: 'Juego realizado de estrategia en C++',
+    imageUrl: '/assets/fresh-fish.svg',
+    link: 'https://github.com/Jofrix98/FreshFish',
+    date: '2024'
+  }
+];
+---
+<section id="projects" class="max-w-6xl mx-auto px-4 py-12 bg-black/80">
+  
+  <h2 class="text-4xl font-bold text-white mb-12 text-center">Proyectos</h2>
+  
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    {projects.map((project) => (
+      <div class="bg-white/5 rounded-lg overflow-hidden hover:scale-[1.02] transition-transform duration-300">
+        <a href={project.link} class="block">
+          <img src={project.imageUrl} alt={project.title} class="w-full h-48 object-cover" />
+            <div class="p-6">
+            <h3 class="text-xl font-semibold text-white mb-2">{project.title}</h3>
+            <p class="text-gray-300 mb-4">{project.description}</p>
+            <div class="flex justify-between items-center">
+                <span class="text-sm text-gray-400">{project.date}</span>
+                {project.link !== '#' && (
+                <a href={project.link} class="text-blue-400 hover:text-blue-300 text-sm">
+                    View Project
+                </a>
+                )}
+            </div>
+            </div>
+        </a>
+    </div>
+    ))}
+  </div>
+</section>

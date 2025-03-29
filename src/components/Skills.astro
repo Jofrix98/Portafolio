@@ -1,0 +1,33 @@
+---
+// Definimos las habilidades
+const skills = [
+    { name: 'Astro', image: '/assets/logo_astro.png' },
+    { name: 'Tailwind CSS', image: '/assets/logo_tailwindcss.png' },
+    { name: 'PHP', image: '/assets/logo_php.png' },
+    { name: 'SQL', image: '/assets/logo_sql.png' },
+    { name: 'Python', image: '/assets/logo_python.png' },
+    { name: 'C++', image: '/assets/logo_c++.png' }
+];
+
+const skillWidth = 150; // Ancho en px
+const gap = 16; // px (1rem)
+---
+<section id="skills" class="py-20 bg-black/80">
+    <div class="max-w-6xl mx-auto px-4">
+        <h2 class="text-4xl font-bold text-white text-center mb-12">Skills</h2>
+
+        <div class="skills-grid grid gap-[20px] justify-items-center padding-[0 20px] grid-cols-6">
+            {skills.map((skill) => (
+                <div class="skill-item flex flex-col items-center min-w-[150px]">
+                    <img 
+                        src={skill.image} 
+                        alt={skill.name} 
+                        class="w-24 h-24 p-4 bg-white rounded-[20px] shadow-lg"
+                        onerror="this.src='https://via.placeholder.com/96';"
+                    />
+                    <p class="mt-2 text-white/80 text-center">{skill.name}</p>
+                </div>
+            ))}
+        </div>
+    </div>
+</section>
