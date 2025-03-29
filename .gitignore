@@ -25,6 +25,3 @@ pnpm-debug.log*
 
 # Local Netlify folder
 .netlify
-
-# Box icon with text
-CREATE: Init project
