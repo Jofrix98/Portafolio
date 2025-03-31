@@ -7,12 +7,11 @@ interface Props {
 const props = Astro.props as Props;
 
 const defaultNavItems = [
-  { text: 'Home', href: '#home' },
-  { text: 'Experience', href: '#experience' },
-  { text: 'Projects', href: '#projects' },
-  { text: 'Skills', href: '#skills' },
-  { text: 'About', href: '#about' },
-  { text: 'Contact', href: '#contact' },
+  { text: 'Experiencia', href: '#experience' },
+  { text: 'Proyectos', href: '#projects' },
+  { text: 'Habilidades', href: '#skills' },
+  { text: 'Acerca de', href: '#about' },
+  { text: 'Contacto', href: '#contact' },
 ];
 
 const navItems = props.navItems || defaultNavItems;
