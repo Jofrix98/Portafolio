@@ -1,0 +1,63 @@
+---
+interface ExperienceItem {
+  title: string;
+  company: string;
+  date: string;
+  description: string[];
+  techStack?: string[];
+}
+
+const experiences: ExperienceItem[] = [
+  {
+    title: "Full Stack Developer",
+    company: "Premium Delevent",
+    date: "Abril 2024 - Present",
+    description: [
+      "Lidero el departamento de IT, coordinando el equipo y asegurando el buen funcionamiento de PREMIUM, la empresa líder en alquiler de mobiliario, moqueta y stands para grandes eventos como el Mobile World Congress.",
+      "También me encargo del desarrollo Full Stack de la pagina web trabajando con tamplates de Wordpress con PHP con un control de codigo en Github.",
+      "Además, perfecciono aplicaciones internas con Symfony, Deployer, Windsurf AI y Bitbucket.",
+      "Finalmente, soy el responsable del mantenimiento de usuarios, equipos, servidores y el resto de la infraestructura tecnológica de PREMIUM."
+    ],
+    techStack: ["PHP", "Wordpress", "Symfony", "Deployer", "Windsurf AI", "Github", "Bitbucket"]
+  },
+  {
+    title: "Frontend Developer",
+    company: "",
+    date: "Febrero 2025 - Present",
+    description: [
+      "Desarrollo interfaces de usuario modernas y optimizadas utilizando Astro y Tailwind CSS. Con Astro, creo sitios web rápidos y dinámicos, con componentes reutilizables. Mientras que con Tailwind CSS, diseño interfaces personalizadas de forma eficiente y flexible. Todo el código es gestionado y versionado a través de GitHub, lo que facilita el control del proyecto."
+    ],
+    techStack: ["Astro", "Tailwind CSS", "Github"]
+  }
+];
+---
+
+<section id="experience" class="relative py-8 px-8 max-w-3xl mx-auto">
+
+  <h2 class="text-4xl font-bold text-white mb-12 text-center">Experiencia</h2>
+
+  <div class="absolute left-8 top-0 bottom-0 w-1 bg-white"></div>
+  {experiences.map((experience, index) => (
+    <article class="relative py-8">
+      <div class="bg-white/5 p-20 rounded-xl shadow-lg">
+        <div class="flex justify-between mb-4 font-semibold text-white">
+          <h3>{experience.title}</h3>
+          <span class="text-white text-sm">{experience.date}</span>
+        </div>
+        <p class="company text-white">{experience.company}</p>
+        <ul class="description list-disc pl-6 text-white">
+          {experience.description.map((desc) => (
+            <li>{desc}</li>
+          ))}
+        </ul>
+        {experience.techStack && (
+          <div class="mt-4 flex gap-2 flex-wrap">
+            {experience.techStack.map((tech) => (
+              <span class="bg-purple_dark py-1 px-3 rounded-full text-white text-sm">{tech}</span>
+            ))}
+          </div>
+        )}
+      </div>
+    </article>
+  ))}
+</section>
