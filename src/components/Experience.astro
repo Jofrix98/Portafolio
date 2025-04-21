@@ -30,13 +30,13 @@ const experiences: ExperienceItem[] = [
   <div class="absolute left-8 top-0 bottom-0 w-1 bg-white"></div>
   {experiences.map((experience, index) => (
     <article class="relative py-8">
-      <div class="bg-white/5 p-20 rounded-xl shadow-lg">
-        <div class="flex justify-between mb-4 font-semibold text-white">
+      <div class="bg-white/5 p-5 rounded-xl shadow-lg md:p-20">
+        <div class="block justify-between mb-4 font-semibold text-white md:flex">
           <h3>{experience.title}</h3>
           <span class="text-white text-sm">{experience.date}</span>
         </div>
         <p class="company text-white">{experience.company}</p>
-        <ul class="description list-disc pl-6 text-white">
+        <ul class="description list-disc pl-6 text-white space-y-5">
           {experience.description.map((desc) => (
             <li>{desc}</li>
           ))}
